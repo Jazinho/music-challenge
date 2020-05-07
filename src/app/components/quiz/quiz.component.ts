@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PlayerService} from "../../service/player.service";
+import {Song} from "../../models/song";
+import {SongsService} from "../../service/songs.service";
 
 @Component({
   selector: 'app-quiz',
@@ -8,10 +10,24 @@ import {PlayerService} from "../../service/player.service";
 })
 export class QuizComponent implements OnInit {
 
-  constructor(private playerService: PlayerService) { }
+  questionNumber: number = 1;
+  quizSongs: Song[] = [];
+  // currentSong: Song;
+  wrongAnswers: string[];
+
+  constructor(private songsService: SongsService) { }
 
   ngOnInit() {
-    console.log(this.playerService.playerName);
+    this.quizSongs = this.songsService.getSongsForQuiz();
+    console.log(this.quizSongs);
+    // this.currentSong = this.songsService.getSongByNumber(this.questionNumber-1);
+    this.wrongAnswers = this.songsService.generateWrongAnswers();
+  }
+
+  nextQuestion(){
+    this.questionNumber++;
+    // this.currentSong = this.songsService.getSongByNumber(this.questionNumber-1);
+    this.wrongAnswers = this.songsService.generateWrongAnswers();
   }
 
 }

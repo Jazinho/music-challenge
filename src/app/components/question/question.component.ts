@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {PlayerService} from "../../service/player.service";
-import {Router} from "@angular/router";
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {YouTubePlayer} from "@angular/youtube-player";
 
 @Component({
   selector: 'app-question',
@@ -9,16 +8,34 @@ import {Router} from "@angular/router";
 })
 export class QuestionComponent implements OnInit {
 
-  playerName: string;
+  @Input()
+  videoId: string;
 
-  constructor(private playerService: PlayerService,
-              private router: Router) { }
+  @Input()
+  title: string;
+
+  @Input()
+  startTime: string;
+
+  @Input()
+  wrongAnswers: string[];
+
+  @ViewChild(YouTubePlayer)
+  youTubePlayer: YouTubePlayer;
+
+  constructor() { }
 
   ngOnInit() {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(tag);
   }
 
-  goToQuiz(){
-    this.playerService.playerName = this.playerName;
-    this.router.navigateByUrl("quiz");
+  play(){
+    this.youTubePlayer.playVideo();
+  }
+
+  answer(){
+
   }
 }

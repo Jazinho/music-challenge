@@ -1,3 +1,11 @@
-<p>
-  question works@
-</p>
+<div [hidden]="true">
+  <youtube-player
+    videoId="{{videoId}}"
+    startSeconds="{{startTime}}"
+    endSeconds="{{startTime + 13}}">
+  </youtube-player>
+</div>
+
+<button (click)="play()"> Grej </button>
+
+<button (click)="answer()"> Answer </button>

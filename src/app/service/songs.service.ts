@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Song} from "../models/song";
 
 var songs = [
   {
@@ -9,10 +8,10 @@ var songs = [
     startTime: 50
   },
   {
-    title:    'Scenariusz Dla moich sąsiadów',
+    title:    'Werteryczne serc połówki',
     lang:     'pl',
-    videoId:  'AbyJ_h4xfRQ',
-    startTime: 34
+    videoId:  'xDtb2Cwux5A',
+    startTime: 60
   },
   {
     title:    'You dont fool me',
@@ -27,12 +26,18 @@ var songs = [
 })
 export class SongsService{
 
-  songs: Song[];
-  currentSongNumber: number = 0;
-
   constructor() { }
 
-  setSongsForQuiz() {
-    this.songs = songs;
+  getSongsForQuiz() {
+    return songs;
+  }
+
+  getSongByNumber(index: number){
+    let song = songs[index];
+    return song;
+  }
+
+  generateWrongAnswers(): string[]{
+    return ["dup1", "dup2", "dup3"];
   }
 }

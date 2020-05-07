@@ -6,6 +6,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { NameComponent } from './components/name/name.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import {QuestionComponent} from "./components/question/question.component";
+import {YouTubePlayerModule} from "@angular/youtube-player";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {QuestionComponent} from "./components/question/question.component";
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

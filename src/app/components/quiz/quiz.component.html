@@ -1,3 +1,20 @@
-<p>
-  quiz works!
-</p>
+<div>
+  {{'Pytanie nr ' + questionNumber + '/10'}}
+</div>
+
+<div *ngFor="let song of quizSongs; let idx = index">
+  <div>
+    <app-question
+      [title]="song.title"
+      [videoId]="song.videoId"
+      [startTime]="song.startTime"
+      [wrongAnswers]="wrongAnswers"
+    ></app-question>
+  </div>
+</div>
+
+<div>
+  <button (click)="nextQuestion()">
+    Dalyj
+  </button>
+</div>
