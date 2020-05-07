@@ -5,12 +5,14 @@ import {FormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 import { NameComponent } from './components/name/name.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import {QuestionComponent} from "./components/question/question.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NameComponent,
-    QuizComponent
+    QuizComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ export class QuizComponent implements OnInit {
   constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
-    console.log(this.playerService.playerName)
+    console.log(this.playerService.playerName);
   }
 
 }
