@@ -4,4 +4,5 @@ export interface Song {
   videoId: string;
   startTime: number;
   lang: string;
+  answers: string[]
 }

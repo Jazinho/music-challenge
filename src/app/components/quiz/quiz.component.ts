@@ -13,7 +13,6 @@ export class QuizComponent implements OnInit {
   questionNumber: number = 1;
   quizSongs: Song[] = [];
   // currentSong: Song;
-  wrongAnswers: string[];
 
   constructor(private songsService: SongsService) { }
 
@@ -21,13 +20,11 @@ export class QuizComponent implements OnInit {
     this.quizSongs = this.songsService.getSongsForQuiz();
     console.log(this.quizSongs);
     // this.currentSong = this.songsService.getSongByNumber(this.questionNumber-1);
-    this.wrongAnswers = this.songsService.generateWrongAnswers();
   }
 
   nextQuestion(){
     this.questionNumber++;
     // this.currentSong = this.songsService.getSongByNumber(this.questionNumber-1);
-    this.wrongAnswers = this.songsService.generateWrongAnswers();
   }
 
 }

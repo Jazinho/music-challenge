@@ -18,10 +18,12 @@ export class QuestionComponent implements OnInit {
   startTime: string;
 
   @Input()
-  wrongAnswers: string[];
+  answers: string[];
 
   @ViewChild(YouTubePlayer)
   youTubePlayer: YouTubePlayer;
+
+  areAnswersVisible: boolean = false;
 
   constructor() { }
 
@@ -33,9 +35,10 @@ export class QuestionComponent implements OnInit {
 
   play(){
     this.youTubePlayer.playVideo();
+    this.areAnswersVisible = true;
   }
 
-  answer(){
-
+  makeGuess(){
+    this.areAnswersVisible = false;
   }
 }

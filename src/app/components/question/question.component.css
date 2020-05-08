@@ -1,0 +1,58 @@
+.song-container {
+  height: 190px;
+  width: 250px;
+  position: relative;
+  text-align:center;
+  vertical-align:middle;
+  display: table-cell;
+}
+
+.song-button {
+  border-radius: 50px;
+  background-color: white;
+  width: 80px;
+  height: 80px;
+}
+
+.rotate-counter {
+  -moz-transform: rotate(-22.0deg); /* FF3.5+ */
+  -o-transform: rotate(-22.0deg); /* Opera 10.5 */
+  -webkit-transform: rotate(-22.0deg); /* Saf3.1+, Chrome */
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.02); /* IE6,IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.02)"; /* IE8 */
+  transform: rotate(-22.0deg); /* Standard */
+}
+
+.rotate-clockwise {
+  -moz-transform: rotate(22.0deg); /* FF3.5+ */
+  -o-transform: rotate(22.0deg); /* Opera 10.5 */
+  -webkit-transform: rotate(22.0deg); /* Saf3.1+, Chrome */
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=-0.02); /* IE6,IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=-0.02)"; /* IE8 */
+  transform: rotate(22.0deg); /* Standard */
+}
+
+.answer-top-left{
+  left: 0px;
+  top: 0px;
+}
+
+.answer-top-right{
+  left: 160px;
+  top: 0px;
+}
+
+.answer-bottom-left{
+  left: 0px;
+  top: 140px;
+}
+
+.answer-bottom-right{
+  left: 160px;
+  top: 140px;
+}
+
+span {
+  position: absolute;
+  max-width: 90px;
+}
