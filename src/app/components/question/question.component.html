@@ -7,11 +7,23 @@
 </div>
 
 <div class="song-container">
-  <span class="answer-top-left rotate-counter" *ngIf="areAnswersVisible" (click)="makeGuess(answers[0])"> {{answers[0]}}</span>
-  <span class="answer-top-right rotate-clockwise" *ngIf="areAnswersVisible" (click)="makeGuess(answers[1])"> {{answers[1]}}</span>
+  <span class="answer-top-left rotate-counter" *ngIf="areAnswersVisible" (click)="makeGuess(answers[0])"
+        [ngClass]="{'good-ans': givenAnswer == answers[0] && givenAnswer == title, 'bad-ans': givenAnswer == answers[0] && givenAnswer != title}">
+    {{answers[0]}}
+  </span>
+  <span class="answer-top-right rotate-clockwise" *ngIf="areAnswersVisible" (click)="makeGuess(answers[1])"
+        [ngClass]="{'good-ans': givenAnswer == answers[1] && givenAnswer == title, 'bad-ans': givenAnswer == answers[1] && givenAnswer != title}">
+    {{answers[1]}}
+  </span>
 
   <button (click)="play()" class="song-button"></button>
 
-  <span class="answer-bottom-left rotate-clockwise" *ngIf="areAnswersVisible" (click)="makeGuess(answers[2])"> {{answers[2]}}</span>
-  <span class="answer-bottom-right rotate-counter" *ngIf="areAnswersVisible" (click)="makeGuess(answers[3])">{{answers[3]}}</span>
+  <span class="answer-bottom-left rotate-clockwise" *ngIf="areAnswersVisible" (click)="makeGuess(answers[2])"
+        [ngClass]="{'good-ans': givenAnswer == answers[2] && givenAnswer == title, 'bad-ans': givenAnswer == answers[2] && givenAnswer != title}">
+    {{answers[2]}}
+  </span>
+  <span class="answer-bottom-right rotate-counter" *ngIf="areAnswersVisible" (click)="makeGuess(answers[3])"
+        [ngClass]="{'good-ans': givenAnswer == answers[3] && givenAnswer == title, 'bad-ans': givenAnswer == answers[3] && givenAnswer != title}">
+    {{answers[3]}}
+  </span>
 </div>

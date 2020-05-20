@@ -9,9 +9,9 @@
 
 .song-button {
   border-radius: 50px;
-  background-color: white;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+  background-image: url('../../../assets/images/default_button.png');
 }
 
 .rotate-counter {
@@ -55,4 +55,34 @@
 span {
   position: absolute;
   max-width: 90px;
+}
+
+.good-ans {
+  animation: green-glow 1.5s infinite alternate;
+  background-color: limegreen;
+}
+
+.bad-ans {
+  animation: red-glow 1.5s infinite alternate;
+  background-color: orangered;
+}
+
+@keyframes green-glow {
+  from {
+    box-shadow: 0 0 20px 10px limegreen;
+  }
+  to {
+    box-shadow: 0 0 40px 20px limegreen;
+    /*text-shadow: 0 0 20px limegreen;*/
+  }
+}
+
+@keyframes red-glow {
+  from {
+    box-shadow: 0 0 20px 10px orangered;
+  }
+  to {
+    box-shadow: 0 0 40px 20px orangered;
+    /*text-shadow: 0 0 20px orangered;*/
+  }
 }

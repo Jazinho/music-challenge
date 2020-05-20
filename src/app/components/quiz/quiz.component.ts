@@ -16,17 +16,23 @@ export class QuizComponent implements OnInit {
   // currentSong: Song;
 
   constructor(private songsService: SongsService,
+              private playerService: PlayerService,
               private router: Router) { }
 
   ngOnInit() {
     this.quizSongs = this.songsService.getSongsForQuiz();
-    console.log(this.quizSongs);
+    // console.log(this.quizSongs);
+
+    this.playerService.setUserResult(0);
     // this.currentSong = this.songsService.getSongByNumber(this.questionNumber-1);
   }
 
-  nextQuestion(){
-    this.questionNumber++;
-    // this.currentSong = this.songsService.getSongByNumber(this.questionNumber-1);
+  onNextQuestionTrigger($event){
+    if(this.questionNumber < 10){
+      this.questionNumber++;
+    } else {
+      this.router.navigateByUrl("/summary")
+    }
   }
 
   finish(){

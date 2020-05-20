@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div class="mt-4" style="font-size: 20px">
   {{'Pytanie nr ' + questionNumber + '/10'}}
 </div>
 
@@ -10,11 +10,12 @@
       [videoId]="song.videoId"
       [startTime]="song.startTime"
       [answers]="song.answers"
+      (nextQuestionTrigger)="onNextQuestionTrigger($event)"
     ></app-question>
   </div>
 </div>
 
-<div class="mt-5">
+<div style="margin-top: 60px">
   <button class="btn btn-warning" (click)="finish()">
     Zakończ Quiz
   </button>

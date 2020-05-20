@@ -1,5 +1,6 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {YouTubePlayer} from "@angular/youtube-player";
+import {PlayerService} from "../../service/player.service";
 
 @Component({
   selector: 'app-question',
@@ -20,12 +21,17 @@ export class QuestionComponent implements OnInit {
   @Input()
   answers: string[];
 
+  @Output('nextQuestionTrigger')
+  nextQuestionTrigger: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   @ViewChild(YouTubePlayer)
   youTubePlayer: YouTubePlayer;
 
   areAnswersVisible: boolean = false;
+  videoStarted: boolean = false;
+  givenAnswer: string = "";
 
-  constructor() { }
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
     const tag = document.createElement('script');
@@ -34,11 +40,26 @@ export class QuestionComponent implements OnInit {
   }
 
   play(){
-    this.youTubePlayer.playVideo();
-    this.areAnswersVisible = true;
+    if(!this.videoStarted){
+      this.youTubePlayer.playVideo();
+      this.areAnswersVisible = true;
+      this.videoStarted = true;
+    }
   }
 
-  makeGuess(){
-    this.areAnswersVisible = false;
+  makeGuess(answer: string){
+    this.givenAnswer = answer;
+    this.youTubePlayer.stopVideo();
+
+    if(answer == this.title){
+      this.playerService.increaseUserResult()
+    }
+
+    setTimeout(() => {
+      this.areAnswersVisible = false;
+      setTimeout(() => {
+        this.nextQuestionTrigger.emit(true);
+      }, 200);
+    }, 2000);
   }
 }

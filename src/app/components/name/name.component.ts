@@ -18,7 +18,7 @@ export class NameComponent implements OnInit {
   }
 
   goToQuiz(){
-    this.playerService.playerName = this.playerName;
+    this.playerService.setPlayerName(this.playerName);
     this.router.navigateByUrl("quiz");
   }
 }
