@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PlayerService} from "../../service/player.service";
 import {Song} from "../../models/song";
 import {SongsService} from "../../service/songs.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-quiz',
@@ -14,7 +15,8 @@ export class QuizComponent implements OnInit {
   quizSongs: Song[] = [];
   // currentSong: Song;
 
-  constructor(private songsService: SongsService) { }
+  constructor(private songsService: SongsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.quizSongs = this.songsService.getSongsForQuiz();
@@ -27,4 +29,7 @@ export class QuizComponent implements OnInit {
     // this.currentSong = this.songsService.getSongByNumber(this.questionNumber-1);
   }
 
+  finish(){
+    this.router.navigateByUrl("/summary")
+  }
 }

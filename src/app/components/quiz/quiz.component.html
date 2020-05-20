@@ -1,8 +1,9 @@
-<div>
+<div class="mt-4">
   {{'Pytanie nr ' + questionNumber + '/10'}}
 </div>
 
-<div *ngFor="let song of quizSongs; let idx = index">
+<div *ngFor="let song of quizSongs; let idx = index" [hidden]="idx != questionNumber-1"
+      class="mt-5">
   <div>
     <app-question
       [title]="song.title"
@@ -13,8 +14,8 @@
   </div>
 </div>
 
-<div>
-  <button (click)="nextQuestion()">
-    Dalyj
+<div class="mt-5">
+  <button class="btn btn-warning" (click)="finish()">
+    Zakończ Quiz
   </button>
 </div>

@@ -2,6 +2,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {NameComponent} from "./components/name/name.component";
 import {QuizComponent} from "./components/quiz/quiz.component";
+import {SummaryComponent} from "./components/summary/summary.component";
 
 
 const routes: Routes = [
@@ -14,6 +15,11 @@ const routes: Routes = [
   {
     path: 'quiz',
     component: QuizComponent
+    // canActivate: [NameGuard], //TODO GUARD czy podane imie
+  },
+  {
+    path: 'summary',
+    component: SummaryComponent
     // canActivate: [NameGuard], //TODO GUARD czy podane imie
   }
 ];

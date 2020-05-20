@@ -7,13 +7,15 @@ import { NameComponent } from './components/name/name.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import {QuestionComponent} from "./components/question/question.component";
 import {YouTubePlayerModule} from "@angular/youtube-player";
+import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NameComponent,
     QuizComponent,
-    QuestionComponent
+    QuestionComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
